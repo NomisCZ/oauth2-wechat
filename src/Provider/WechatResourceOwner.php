@@ -4,7 +4,7 @@ namespace NomisCZ\OAuth2\Client\Provider;
 
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 
-class WechatResourceOwner implements ResourceOwnerInterface
+class WeChatResourceOwner implements ResourceOwnerInterface
 {
     /**
      * Raw response

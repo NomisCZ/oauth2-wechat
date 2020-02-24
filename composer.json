@@ -1,6 +1,6 @@
 {
   "name": "nomiscz/oauth2-wechat",
-  "description": "Wechat Provider for the OAuth 2.0 Client",
+  "description": "WeChat Provider for the OAuth 2.0 Client",
   "license": "MIT",
   "authors": [
     {

@@ -10,7 +10,7 @@ use League\OAuth2\Client\Token\AccessToken;
 use League\OAuth2\Client\Tool\ArrayAccessorTrait;
 use Psr\Http\Message\ResponseInterface;
 
-class Wechat extends AbstractProvider
+class WeChat extends AbstractProvider
 {
     use ArrayAccessorTrait;
 
@@ -181,6 +181,6 @@ class Wechat extends AbstractProvider
      */
     protected function createResourceOwner(array $response, AccessToken $token)
     {
-        return new WechatResourceOwner($response);
+        return new WeChatResourceOwner($response);
     }
 }

@@ -1,8 +1,8 @@
-# Wechat Provider for OAuth 2.0 Client
+# WeChat Provider for OAuth 2.0 Client
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg) [![Latest Stable Version](https://img.shields.io/packagist/v/nomiscz/oauth2-wechat.svg)](https://packagist.org/packages/nomiscz/oauth2-wechat)
 
-This package provides Wechat OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
+This package provides WeChat OAuth 2.0 support for the PHP League's [OAuth 2.0 Client](https://github.com/thephpleague/oauth2-client).
 
 ## Installation
 
@@ -14,12 +14,12 @@ composer require nomiscz/oauth2-wechat
 
 ## Usage
 
-Usage is the same as The League's OAuth client, using `NomisCZ\OAuth2\Client\Provider\Wechat` as the provider.
+Usage is the same as The League's OAuth client, using `NomisCZ\OAuth2\Client\Provider\WeChat` as the provider.
 
 ### Authorization Code Flow
 
 ```php
-$provider = new NomisCZ\OAuth2\Client\Provider\Wechat([
+$provider = new NomisCZ\OAuth2\Client\Provider\WeChat([
     'appid' => '{wechat-client-id}',
     'secret' => '{wechat-client-secret}',
     'redirect_uri' => 'https://example.com/callback-url'
