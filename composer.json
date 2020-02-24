@@ -1,0 +1,38 @@
+{
+  "name": "nomiscz/oauth2-wechat",
+  "description": "Wechat Provider for the OAuth 2.0 Client",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "NomisCZ",
+      "email": "nomiscz@outlook.com"
+    }
+  ],
+  "keywords": [
+    "oauth",
+    "oauth2",
+    "client",
+    "authorization",
+    "authorisation",
+    "wechat"
+  ],
+  "homepage": "https://github.com/nomiscz/oauth2-wechat",
+  "require": {
+    "league/oauth2-client": "^2.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~4.0",
+    "mockery/mockery": "~0.9",
+    "squizlabs/php_codesniffer": "~2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "NomisCZ\\OAuth2\\Client\\": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+        "dev-master": "1.0.x-dev"
+    }
+  }
+}
