@@ -26,7 +26,7 @@ class WeChat extends AbstractProvider
     const BASE_AUTH_URL = 'https://open.weixin.qq.com/connect';
 
     /**
-     * Acess Token API
+     * Access Token API
      *
      * @const string
      */
@@ -90,15 +90,16 @@ class WeChat extends AbstractProvider
     /**
      * Requests an access token using a specified grant and option set.
      *
-     * @param  mixed $grant
-     * @param  array $options
+     * @param mixed $grant
+     * @param array $options
      * @return AccessToken
+     * @throws IdentityProviderException
      */
     public function getAccessToken($grant, array $options = [])
     {
         $grant = $this->verifyGrant($grant);
         $params = [
-            'appid'     => $this->appid,
+            'appid'  => $this->appid,
             'secret' => $this->secret
         ];
 
@@ -106,9 +107,8 @@ class WeChat extends AbstractProvider
         $request  = $this->getAccessTokenRequest($params);
         $response = $this->getParsedResponse($request);
         $prepared = $this->prepareAccessTokenResponse($response);
-        $token    = $this->createAccessToken($prepared, $grant);
 
-        return $token;
+        return $this->createAccessToken($prepared, $grant);
     }
 
     /**
@@ -158,16 +158,16 @@ class WeChat extends AbstractProvider
      *
      * @throws IdentityProviderException
      * @param  ResponseInterface $response
-     * @param  array|string|\Psr\Http\Message\ResponseInterface $data Parsed response data
+     * @param  array|string|ResponseInterface $data Parsed response data
      * @return void
      */
     protected function checkResponse(ResponseInterface $response, $data)
     {
-        $errcode = $this->getValueByKey($data, 'errcode');
-        $errmsg = $this->getValueByKey($data, 'errmsg');
+        $errorCode = $this->getValueByKey($data, 'errcode');
+        $errorMessage = $this->getValueByKey($data, 'errmsg');
 
-        if ($errcode || $errmsg) {
-            throw new IdentityProviderException($errmsg, $errcode, $response);
+        if ($errorCode || $errorMessage) {
+            throw new IdentityProviderException($errorMessage, $errorCode, $response);
         };
     }
 
