@@ -8,6 +8,7 @@ use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 use League\OAuth2\Client\Provider\ResourceOwnerInterface;
 use League\OAuth2\Client\Token\AccessToken;
 use League\OAuth2\Client\Tool\ArrayAccessorTrait;
+use NomisCZ\OAuth2\Client\Provider\Exception\WeChatIdentityProviderException;
 use Psr\Http\Message\ResponseInterface;
 
 class WeChat extends AbstractProvider
@@ -163,12 +164,9 @@ class WeChat extends AbstractProvider
      */
     protected function checkResponse(ResponseInterface $response, $data)
     {
-        $errorCode = $this->getValueByKey($data, 'errcode');
-        $errorMessage = $this->getValueByKey($data, 'errmsg');
-
-        if ($errorCode || $errorMessage) {
-            throw new IdentityProviderException($errorMessage, $errorCode, $response);
-        };
+        if ($response->getStatusCode() >= 400) {
+            throw WeChatIdentityProviderException::clientException($response, $data);
+        }
     }
 
     /**
